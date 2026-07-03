@@ -1,0 +1,37 @@
+# Root .gitignore for the brother-portfolio monorepo-style layout.
+# The Next.js app lives in website/ and has its own .gitignore for
+# app-scoped outputs; these patterns are global safety nets.
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Build output / caches
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# Environment & secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+
+# Vercel
+.vercel
+
+# Local Claude Code tooling (machine-specific absolute paths)
+.claude/
+website/.claude/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
