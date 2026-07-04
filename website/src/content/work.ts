@@ -40,35 +40,30 @@ const poster = {
 
 export const workItems: WorkItem[] = [
   {
-    id: "the-select-premia",
-    title: "The Select Premia",
-    developer: "Adore Developers",
-    category: "Luxury Residential Apartments",
+    id: "ivory-arches",
+    title: "Ivory Arches",
+    developer: "Zack Developers",
+    category: "Luxury Builder Floors",
     ratio: "9:16",
-    poster: poster.warm,
+    poster: poster.cool,
     description:
-      "Produced the visual marketing campaign for The Select Premia, creating cinematic short-form reels showcasing its premium 3 & 4 BHK residences, amenities, and lifestyle. The content became a key part of the project's digital marketing.",
+      "Produced promotional content for Ivory Arches, a premium builder-floor development on Dwarka Expressway. Created cinematic walkthroughs and short-form reels showcasing multiple 3 & 4 BHK configurations, modern architecture, and premium living.",
     details: [
-      { label: "Developer", value: "Adore Developers" },
+      { label: "Developer", value: "Zack Developers" },
       {
         label: "Role",
         value:
-          "Led the visual marketing campaign end to end — concept, shoot direction, and final edit.",
+          "Produced the promotional content campaign from shoot through final edit.",
       },
       {
         label: "Content",
         value:
-          "Cinematic short-form reels showcasing the premium 3 & 4 BHK residences, amenities, and lifestyle.",
+          "Cinematic walkthroughs and short-form reels across multiple 3 & 4 BHK configurations.",
       },
       {
         label: "Objective",
         value:
-          "Anchor the project's digital marketing and turn premium buyer interest into enquiries.",
-      },
-      {
-        label: "Outcome",
-        value:
-          "Directly contributed to the sale of 3 residential units.",
+          "Showcase the modern architecture and premium living on Dwarka Expressway to serious buyers.",
       },
     ],
   },
@@ -101,34 +96,6 @@ export const workItems: WorkItem[] = [
     ],
   },
   {
-    id: "ivory-arches",
-    title: "Ivory Arches",
-    developer: "Zack Developers",
-    category: "Luxury Builder Floors",
-    ratio: "9:16",
-    poster: poster.cool,
-    description:
-      "Produced promotional content for Ivory Arches, a premium builder-floor development on Dwarka Expressway. Created cinematic walkthroughs and short-form reels showcasing multiple 3 & 4 BHK configurations, modern architecture, and premium living.",
-    details: [
-      { label: "Developer", value: "Zack Developers" },
-      {
-        label: "Role",
-        value:
-          "Produced the promotional content campaign from shoot through final edit.",
-      },
-      {
-        label: "Content",
-        value:
-          "Cinematic walkthroughs and short-form reels across multiple 3 & 4 BHK configurations.",
-      },
-      {
-        label: "Objective",
-        value:
-          "Showcase the modern architecture and premium living on Dwarka Expressway to serious buyers.",
-      },
-    ],
-  },
-  {
     id: "the-edition",
     title: "The Edition",
     developer: "Smartworld",
@@ -153,6 +120,39 @@ export const workItems: WorkItem[] = [
         label: "Objective",
         value:
           "Reinforce the project's ultra-luxury positioning and premium market perception.",
+      },
+    ],
+  },
+  {
+    id: "the-select-premia",
+    title: "The Select Premia",
+    developer: "Adore Developers",
+    category: "Luxury Residential Apartments",
+    ratio: "9:16",
+    poster: poster.warm,
+    description:
+      "Produced the visual marketing campaign for The Select Premia, creating cinematic short-form reels showcasing its premium 3 & 4 BHK residences, amenities, and lifestyle. The content became a key part of the project's digital marketing.",
+    details: [
+      { label: "Developer", value: "Adore Developers" },
+      {
+        label: "Role",
+        value:
+          "Led the visual marketing campaign end to end — concept, shoot direction, and final edit.",
+      },
+      {
+        label: "Content",
+        value:
+          "Cinematic short-form reels showcasing the premium 3 & 4 BHK residences, amenities, and lifestyle.",
+      },
+      {
+        label: "Objective",
+        value:
+          "Anchor the project's digital marketing and turn premium buyer interest into enquiries.",
+      },
+      {
+        label: "Outcome",
+        value:
+          "Directly contributed to the sale of 3 residential units.",
       },
     ],
   },
