@@ -168,14 +168,19 @@ export function Header() {
 
       {/* Mobile drawer */}
       {/* Disclosure region (not a modal): toggle carries aria-expanded/controls;
-          inert + aria-hidden gate it while closed. */}
+          inert + aria-hidden gate it while closed.
+          NOTE: the <header> applies a transform + backdrop-filter, which makes
+          it the containing block for this fixed child — so `inset`/`bottom`
+          resolve against the 64px header box, collapsing the panel to 0 height
+          (the background then paints on nothing). Use an explicit height so the
+          panel and its background fill the screen below the bar. */}
       <div
         id="mobile-drawer"
         ref={drawerRef}
         aria-hidden={!open}
         inert={!open}
         className={cn(
-          "fixed inset-0 top-16 origin-top bg-[var(--color-base)] transition-[opacity,transform] duration-[400ms] ease-[var(--ease-standard)] md:hidden",
+          "fixed inset-x-0 top-16 h-[calc(100dvh-4rem)] origin-top bg-[var(--color-base)] transition-[opacity,transform] duration-[400ms] ease-[var(--ease-standard)] md:hidden",
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0",
