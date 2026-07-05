@@ -128,7 +128,7 @@ export const site = {
     },
     { value: "1M+", label: "Monthly reach" },
     {
-      value: "300K+",
+      value: "500K+",
       label: "Real estate page reach",
       href: "https://www.instagram.com/realtybyrahul/",
       sub: "916 followers · account started 3 months ago",
