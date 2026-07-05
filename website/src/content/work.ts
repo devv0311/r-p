@@ -42,14 +42,14 @@ export const workItems: WorkItem[] = [
   {
     id: "ivory-arches",
     title: "Ivory Arches",
-    developer: "Zack Developers",
+    developer: "Zak Living",
     category: "Luxury Builder Floors",
     ratio: "9:16",
     poster: poster.cool,
     description:
       "Produced promotional content for Ivory Arches, a premium builder-floor development on Dwarka Expressway. Created cinematic walkthroughs and short-form reels showcasing multiple 3 & 4 BHK configurations, modern architecture, and premium living.",
     details: [
-      { label: "Developer", value: "Zack Developers" },
+      { label: "Developer", value: "Zak Living" },
       {
         label: "Role",
         value:
@@ -70,14 +70,14 @@ export const workItems: WorkItem[] = [
   {
     id: "jasmine-farms",
     title: "Jasmine Farms",
-    developer: "Zack Developers",
+    developer: "Zak Living",
     category: "Luxury Farmhouse Township",
     ratio: "9:16",
     poster: poster.dusk,
     description:
       "Created cinematic marketing content for Jasmine Farms, a gated 50-acre township featuring 50 luxury farmhouses. Produced reels and walkthroughs highlighting the scale, premium amenities, and lifestyle.",
     details: [
-      { label: "Developer", value: "Zack Developers" },
+      { label: "Developer", value: "Zak Living" },
       {
         label: "Role",
         value:

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import Image from "next/image";
 import { track } from "@vercel/analytics";
 import { cn } from "@/lib/cn";
 import { PosterFrame } from "@/components/media/PosterFrame";
@@ -205,6 +206,9 @@ function FilmCard({
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLButtonElement>(null);
   const [preload, setPreload] = useState<"none" | "metadata">("none");
+  // The branded cover is the resting state; the reel fades in only while it
+  // actually plays, then fades back to the cover when paused.
+  const [playing, setPlaying] = useState(false);
 
   /* Defer even metadata until the card nears the viewport; skip entirely
      for Save-Data. Without IntersectionObserver the card simply keeps its
@@ -271,15 +275,38 @@ function FilmCard({
         className="relative aspect-[9/16] w-full overflow-hidden rounded-md border border-[var(--color-line)] bg-[var(--color-raised)] transition-[border-color,transform] duration-[400ms] ease-[var(--ease-standard)] group-hover:border-[var(--color-gold-muted)] group-focus-visible:border-[var(--color-gold-muted)]"
         style={{ backgroundImage: item.poster, backgroundSize: "cover" }}
       >
+        {/* Branded cover — transparent art over the gradient (resting state).
+            The art is 2:3 while the card is 9:16, so contain-fit inside a
+            slightly padded box keeps the whole mark visible (no cropping). */}
+        {item.coverUrl && (
+          <div className="pointer-events-none absolute inset-0 p-[6%]">
+            <div className="relative h-full w-full">
+              <Image
+                src={item.coverUrl}
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="(min-width: 1024px) 320px, 72vw"
+                className="object-contain"
+              />
+            </div>
+          </div>
+        )}
+
         {item.videoUrl && preload !== "none" && (
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full object-cover"
+            className={cn(
+              "absolute inset-0 h-full w-full object-cover transition-opacity duration-[500ms] ease-[var(--ease-standard)]",
+              playing ? "opacity-100" : "opacity-0",
+            )}
             muted
             loop
             playsInline
             preload={preload}
-            poster={item.imageUrl ?? undefined}
+            poster={item.coverUrl ?? item.imageUrl ?? undefined}
+            onPlaying={() => setPlaying(true)}
+            onPause={() => setPlaying(false)}
             aria-hidden="true"
             tabIndex={-1}
           >
