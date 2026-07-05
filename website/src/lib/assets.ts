@@ -50,10 +50,15 @@ const workImage = (id: string) =>
   firstUrl("images/work", id, IMG_EXTS) ?? firstUrl("images", id, IMG_EXTS);
 const workVideo = (id: string) =>
   firstUrl("videos/work", id, VIDEO_EXTS) ?? firstUrl("videos", id, VIDEO_EXTS);
+/** Branded 9:16 cover overlay — assets/images/work/<id>-cover.{…}. Transparent
+ *  art that sits over the card's gradient as the resting state (the reel plays
+ *  on top on hover / in view). */
+const workCover = (id: string) => firstUrl("images/work", `${id}-cover`, IMG_EXTS);
 
 export type ResolvedWorkItem = WorkItem & {
   imageUrl: string | null;
   videoUrl: string | null;
+  coverUrl: string | null;
 };
 
 /** Work items augmented with resolved image/video URLs (if present). */
@@ -62,6 +67,7 @@ export function resolveWorkItems(): ResolvedWorkItem[] {
     ...item,
     imageUrl: workImage(item.id),
     videoUrl: workVideo(item.id),
+    coverUrl: workCover(item.id),
   }));
 }
 
