@@ -39,7 +39,7 @@ export const heroVideo = () => firstUrl("videos", "hero", VIDEO_EXTS);
 export const heroPoster = () => firstUrl("images", "hero", IMG_EXTS);
 
 /** Reach section reel — a 9:16 clip beside the audience metrics.
- *  Drop assets/videos/reach.{mp4,webm,mov}; poster assets/images/reach.{…}. */
+ *  Drop assets/videos/reach.{mp4,webm,mov,m4v}; poster assets/images/reach.{…}. */
 export const reachVideo = () => firstUrl("videos", "reach", VIDEO_EXTS);
 export const reachPoster = () => firstUrl("images", "reach", IMG_EXTS);
 export const portraitImage = () => firstUrl("images", "portrait", IMG_EXTS);

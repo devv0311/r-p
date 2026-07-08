@@ -3,12 +3,23 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { BackgroundVideo } from "./BackgroundVideo";
 
+/* Visitors who ask for less motion or less data shouldn't get audio+video
+   thrown at them on open — the theater still shows, but playback waits for an
+   explicit press on the controls. Mirrors FilmGallery's gating. */
+const prefersStill = () =>
+  typeof window !== "undefined" &&
+  (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ||
+    window.matchMedia?.("(prefers-reduced-data: reduce)").matches ||
+    // @ts-expect-error — non-standard but widely present
+    navigator.connection?.saveData === true);
+
 /**
  * The Reach reel — a muted, looping preview in the ledger that opens into a
  * theater on click. Mirrors the work gallery (FilmGallery): a native <dialog>
  * (focus trap, Esc, focus restore for free) plays the clip full-size *with
  * sound*, since opening is a user gesture; if the browser still declines
- * audio autoplay it falls back to muted so the film always plays.
+ * audio autoplay it falls back to muted so the film always plays. Honors
+ * reduced-motion / Save-Data by leaving playback to the visible controls.
  */
 export function ReachReel({
   src,
@@ -27,14 +38,15 @@ export function ReachReel({
   const close = useCallback(() => dialogRef.current?.close(), []);
 
   /* Mount → showModal; play with sound (allowed off the click gesture), else
-     fall back to muted. Unmounting on close stops playback. */
+     fall back to muted. Reduced-motion / Save-Data skip autoplay entirely —
+     the controls are there to start it. Unmounting on close stops playback. */
   useEffect(() => {
     if (!open) return;
     const dialog = dialogRef.current;
     if (!dialog) return;
     dialog.showModal();
     const v = videoRef.current;
-    if (v) {
+    if (v && !prefersStill()) {
       v.muted = false;
       v.play().catch(() => {
         v.muted = true;
