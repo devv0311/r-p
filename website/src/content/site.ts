@@ -126,9 +126,9 @@ export const site = {
       label: "Instagram followers",
       href: "https://www.instagram.com/rahuljakhar09/",
     },
-    { value: "1M+", label: "Monthly reach" },
+    { value: "1.6M+", label: "Monthly reach" },
     {
-      value: "500K+",
+      value: "700K+",
       label: "Real estate page reach",
       href: "https://www.instagram.com/realtybyrahul/",
       sub: "950+ followers · account started 3 months ago",
